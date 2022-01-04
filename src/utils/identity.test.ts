@@ -1,10 +1,4 @@
-import { enroll, enrollAdmin, register } from './identity';
-
-describe('POST /identities/enroll/admin', () => {
-    it('should respond with HTTP code 200', async () => {
-        await expect(enrollAdmin()).resolves.not.toThrowError();
-    });
-});
+import { enroll, register } from './identity';
 
 describe('POST /identities/register and POST /identities/enroll', () => {
     describe('register and enroll identity', () => {

@@ -10,9 +10,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import strings from '../../strings';
 import {
-    clearWallet, enroll, enrollAdmin, register,
+    clearWallet, enroll, register,
 } from '../../utils/identity';
 import SubmitButton from '../buttons/SubmitButton';
+import env from '../../types/env';
 
 /**
  * Render form for enrolling/registering identities
@@ -71,7 +72,10 @@ function Enroll(
     const submit = async () => {
         try {
             if (identities.length === 0) {
-                await enrollAdmin();
+                await enroll(
+                    env.DefaultAdminName,
+                    env.DefaultAdminSecret,
+                );
                 onSubmitted('');
             } else if (formValues.action === 'REGISTERENROLL') {
                 await register(
@@ -99,6 +103,7 @@ function Enroll(
                 onSubmitted(strings.labelSuccessEnroll);
             }
         } catch (err: unknown) {
+            setIsLoading(undefined);
             onSubmitted(strings.labelError);
         }
     };

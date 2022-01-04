@@ -13,22 +13,7 @@ export const getIdentities = async () => {
 };
 
 /**
- * Enroll an admin identity with the Fabric CA
- */
-export const enrollAdmin = async () => {
-    await axios.post(
-        `${env.ClientUrl}/identities/enroll/admin`,
-        {
-            name: env.DefaultAdminName,
-            secret: env.DefaultAdminSecret,
-            organization: env.OrganizationName,
-        },
-        { timeout: parseInt(env.HttpTimeout, 10) },
-    );
-};
-
-/**
- * Enroll a client identity with the Fabric CA
+ * Enroll an identity with the Fabric CA
  *
  * @param name Identity name
  * @param secret Identity secret
