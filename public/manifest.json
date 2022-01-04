@@ -1,0 +1,8 @@
+{
+  "short_name": "Hyperledger Fabric Client",
+  "name": "Hyperledger Fabric Clinet",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
